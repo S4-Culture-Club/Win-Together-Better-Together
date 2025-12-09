@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulting Department Responsibilities</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f5f7fa; min-height: 100vh; padding: 40px 20px; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 10px 30px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #00a9a5 0%, #0d7377 50%, #ff6b9d 100%); color: white; padding: 60px 50px; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.4; }
+        .header-content { position: relative; z-index: 1; }
+        .header h1 { font-size: 2.5em; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .header .subtitle { font-size: 1.1em; opacity: 0.95; font-weight: 400; }
+        .content { padding: 50px; }
+        .intro-section { background: linear-gradient(135deg, rgba(0, 169, 165, 0.08) 0%, rgba(255, 107, 157, 0.08) 100%); border-left: 4px solid #00a9a5; padding: 30px; border-radius: 12px; margin-bottom: 40px; }
+        .intro-section h2 { color: #00a9a5; font-size: 1.4em; margin-bottom: 12px; font-weight: 600; }
+        .intro-section p { color: #555; font-size: 1.05em; line-height: 1.7; }
+        .section { margin-bottom: 35px; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; transition: all 0.3s ease; }
+        .section:hover { box-shadow: 0 4px 12px rgba(0, 169, 165, 0.25); border-color: #00a9a5; }
+        .section-header { background: linear-gradient(135deg, #00a9a5 0%, #0d7377 50%, #ff6b9d 100%); color: white; padding: 22px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .section-header:hover { background: linear-gradient(135deg, #00bfba 0%, #108084 50%, #ff85b0 100%); }
+        .section-header h2 { font-size: 1.3em; font-weight: 600; letter-spacing: -0.3px; }
+        .collapse-icon { font-size: 1.5em; transition: transform 0.3s ease; font-weight: 300; }
+        .section-header.collapsed .collapse-icon { transform: rotate(-90deg); }
+        .section-content { padding: 30px; background: white; max-height: 5000px; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s; }
+        .section-content.collapsed { max-height: 0; padding: 0 30px; }
+        .values-section h3 { background: linear-gradient(135deg, #00a9a5, #ff6b9d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.15em; margin: 25px 0 15px 0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .values-section h3:first-child { margin-top: 0; }
+        .values-list { list-style: none; padding: 0; }
+        .values-list li { margin-bottom: 14px; padding-left: 30px; position: relative; line-height: 1.65; color: #374151; font-size: 0.98em; }
+        .values-list li:before { content: "→"; position: absolute; left: 0; color: #00a9a5; font-weight: bold; font-size: 1.2em; }
+        .responsibility-item { margin-bottom: 12px; padding: 16px 20px; background: #f9fafb; border-radius: 8px; transition: all 0.2s ease; border-left: 3px solid transparent; }
+        .responsibility-item:hover { background: linear-gradient(135deg, rgba(0, 169, 165, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%); border-left-color: #ff6b9d; transform: translateX(4px); box-shadow: 0 2px 8px rgba(0, 169, 165, 0.15); }
+        .item-wrapper { display: flex; align-items: flex-start; }
+        .bullet { width: 8px; height: 8px; border-radius: 50%; margin-right: 14px; margin-top: 7px; flex-shrink: 0; background: linear-gradient(135deg, #00a9a5, #ff6b9d); }
+        .item-label { flex: 1; line-height: 1.6; color: #374151; font-size: 0.98em; }
+        .item-label strong { color: #1f2937; font-weight: 600; }
+        @media print { body { background: white; padding: 0; } .section-content { max-height: none !important; padding: 30px !important; } .section { page-break-inside: avoid; } .section-header { background: #00a9a5 !important; } }
+        @media (max-width: 768px) { .content { padding: 30px 25px; } .header { padding: 40px 30px; } .header h1 { font-size: 2em; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Consulting Team</h1>
+                <div class="subtitle">Department Responsibilities & Collaboration</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="intro-section">
+                <h2>About Consulting</h2>
+                <p>Here's a quick rundown of what the Consulting Team does and how we fit into everything else going on around here. It tells you what we do, who we work closely with, and how we help keep things running smoothly.</p>
+                <p>And if you're curious about anything else, feel free to pop over and ask.</p>
+            </div>
+
+            <div id="values" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Our Team Values in Action</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed values-section">
+                    <h3>Ignite Growth</h3>
+                    <ul class="values-list">
+                        <li>We continuously learn from client engagements and use those insights to improve our consulting methodology</li>
+                        <li>We share what works (and what doesn't) across client projects so everyone benefits from our collective experience</li>
+                        <li>We challenge ourselves to find better ways to help clients optimise their workforce, not just deliver the same recommendations</li>
+                    </ul>
+                    <h3>Empower Through Innovation</h3>
+                    <ul class="values-list">
+                        <li>We take time to understand what clients really need before proposing consulting solutions</li>
+                        <li>We look for practical operational improvements that work for each client's unique situation</li>
+                        <li>When a consulting approach isn't delivering results, we're willing to adapt and try different strategies</li>
+                    </ul>
+                    <h3>Always Go Beyond</h3>
+                    <ul class="values-list">
+                        <li>We put ourselves in our clients' shoes when developing workforce optimisation recommendations</li>
+                        <li>We respond quickly to client questions and project needs, knowing that delays impact their business operations</li>
+                        <li>We focus our energy on delivering insights that genuinely improve clients' bottom line and productivity</li>
+                    </ul>
+                    <h3>Trust Starts With Us</h3>
+                    <ul class="values-list">
+                        <li>When we see potential challenges in client implementations, we flag them early rather than waiting</li>
+                        <li>We keep clients informed about project progress and findings, even when the results aren't what they hoped for</li>
+                        <li>When we commit to deliverables and timelines, we do everything we can to follow through</li>
+                        <li>We own our mistakes in analysis or recommendations and focus on fixing them rather than making excuses</li>
+                    </ul>
+                    <h3>Win Together</h3>
+                    <ul class="values-list">
+                        <li>We value input from clients and internal teams - Consulting brings workforce expertise, clients bring industry knowledge</li>
+                        <li>We work closely with Customer Success, Sales, and Product to ensure our recommendations align with the S4Labour system</li>
+                        <li>We celebrate client success when they achieve productivity improvements and cost savings</li>
+                        <li>We approach every client interaction with respect and professionalism, even when discussing challenging operational issues</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="what-we-do" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>What Our Department Does</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Helping clients utilise the S4Labour system more effectively</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Teaching clients how to cut "slack" on labour costs to increase productivity</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Improving clients' sales margins through better labour management practices</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Embedding operational excellence and effective workforce deployment behaviours</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Providing strategic advice on scheduling, forecasting, and labour optimisation</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Delivering consulting engagements as an additional service following contract signing</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Supporting clients who have been using the system for years and want to optimise further</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Creating ROI case studies and productivity improvement metrics</div></div></div>
+                </div>
+            </div>
+
+            <div id="decide-on" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>We Can Decide On</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Consulting methodology and best practice frameworks</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Engagement approach and delivery model</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Consulting service pricing and packaging</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Resource allocation across consulting projects</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Knowledge base and training materials for operational excellence</div></div></div>
+                </div>
+            </div>
+
+            <div id="jointly" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>We Decide Jointly with Others</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Consulting service offerings and scope <em>(with Sales, Product, Finance)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Client engagement timing and readiness <em>(with Customer Success, Professional Services)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Pricing for consulting packages <em>(with Sales, Finance)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Feature requests based on operational needs <em>(with Product)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Case study creation and marketing usage <em>(with Marketing, Customer Success)</em></div></div></div>
+                </div>
+            </div>
+
+            <div id="others-decide" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>What Others Decide (That Affects Us)</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Customer Success:</strong> Client engagement opportunities, readiness assessment, and relationship context</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Sales:</strong> New client consulting opportunities and expectations set during contract negotiation</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Professional Services:</strong> Client system setup status and understanding of baseline configuration</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Product:</strong> System capabilities, feature roadmap, and technical limitations for consulting recommendations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Marketing:</strong> Thought leadership content, case study templates, and promotional materials</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Engineering:</strong> System data accuracy and reporting capabilities for productivity analysis</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Finance:</strong> Pricing approvals and consulting engagement profitability tracking</div></div></div>
+                </div>
+            </div>
+
+            <div id="work-with" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Who We Work Closely With</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Sales:</strong> ROI calculations, labour cost saving examples, and productivity improvement case studies for sales conversations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Marketing:</strong> Thought leadership content, operational excellence insights, and customer success metrics</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Customer Success:</strong> Strategic advice for client accounts and best practice recommendations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Product:</strong> Operational insights, feature usage patterns, and workflow improvement ideas</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Clients:</strong> Labour cost reduction strategies, productivity improvements, and operational excellence guidance</div></div></div>
+                </div>
+            </div>
+
+            <div id="gaps" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Potential Gaps and Overlaps</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Consulting vs account management boundaries</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Client readiness criteria</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Operational excellence ownership</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Post-consulting support</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Internal knowledge sharing</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Consulting and Professional Services teach clients best practices</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Consulting and Customer Success provide strategic advice</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Consulting and Sales discuss ROI and productivity improvements</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Consulting and Marketing create thought leadership content</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Consulting and Product discuss operational workflows</div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            content.classList.toggle('collapsed');
+            header.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>
