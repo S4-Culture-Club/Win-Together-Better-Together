@@ -21,7 +21,6 @@
             overflow-x: hidden;
         }
         
-        /* Subtle animated background */
         body::before {
             content: '';
             position: fixed;
@@ -39,15 +38,9 @@
         }
         
         @keyframes subtleFlow {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(20px, -20px) scale(1.1);
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(1.05);
-            }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(20px, -20px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(1.05); }
         }
         
         .container {
@@ -264,6 +257,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            display: block;
         }
         
         .dept-card::before {
@@ -507,65 +502,65 @@
                 <p class="section-intro">Click on any department to view their detailed responsibilities, collaboration patterns, and how they live our values.</p>
                 
                 <div class="departments-grid">
-                    <div class="dept-card" style="--dept-color: #f7941d" onclick="window.location.href='consulting.html'">
+                    <a href="consulting.html" class="dept-card" style="--dept-color: #f7941d">
                         <h3>Consulting</h3>
                         <p>Workforce optimisation and operational excellence</p>
-                    </div>
+                    </a>
                     
-                    <div class="dept-card" style="--dept-color: #00a9a5" onclick="window.location.href='customer-success.html'">
+                    <a href="customer-success.html" class="dept-card" style="--dept-color: #00a9a5">
                         <h3>Customer Success</h3>
                         <p>Client relationships and ongoing support</p>
-                    </div>
+                    </a>
                     
-                    <div class="dept-card" style="--dept-color: #1e3a5f" onclick="window.location.href='engineering.html'">
+                    <a href="engineering.html" class="dept-card" style="--dept-color: #1e3a5f">
                         <h3>Engineering</h3>
                         <p>Software development and system maintenance</p>
-                    </div>
+                    </a>
                     
-                    <div class="dept-card" style="--dept-color: #7c3aed" onclick="window.location.href='finance.html'">
+                    <a href="finance.html" class="dept-card" style="--dept-color: #7c3aed">
                         <h3>Finance</h3>
                         <p>Financial planning and business operations</p>
-                    </div>
+                    </a>
                     
-                    <div class="dept-card" style="--dept-color: #e91388" onclick="window.location.href='hr.html'">
+                    <a href="hr.html" class="dept-card" style="--dept-color: #e91388">
                         <h3>HR</h3>
                         <p>People, culture, and organisational development</p>
-                    </div>
+                    </a>
                     
-                    <div class="dept-card" style="--dept-color: #1e3a5f" onclick="window.location.href='infrastructure.html'">
+                    <a href="infrastructure.html" class="dept-card" style="--dept-color: #1e3a5f">
                         <h3>Infrastructure</h3>
                         <p>Technical infrastructure and system reliability</p>
-                    </div>
+                    </a>
                     
-                    <div class="dept-card" style="--dept-color: #e91388" onclick="window.location.href='marketing.html'">
+                    <a href="marketing.html" class="dept-card" style="--dept-color: #e91388">
                         <h3>Marketing</h3>
                         <p>Brand, campaigns, and lead generation</p>
-                    </div>
+                    </a>
                     
-                    <div class="dept-card" style="--dept-color: #7c3aed" onclick="window.location.href='payroll.html'">
+                    <a href="payroll.html" class="dept-card" style="--dept-color: #7c3aed">
                         <h3>Payroll</h3>
                         <p>Payroll processing and data integrity</p>
-                    </div>
+                    </a>
                     
-                    <div class="dept-card" style="--dept-color: #00a9a5" onclick="window.location.href='product.html'">
+                    <a href="product.html" class="dept-card" style="--dept-color: #00a9a5">
                         <h3>Product</h3>
                         <p>Product strategy and roadmap management</p>
-                    </div>
+                    </a>
                     
-                    <div class="dept-card" style="--dept-color: #f7941d" onclick="window.location.href='professional-services.html'">
+                    <a href="professional-services.html" class="dept-card" style="--dept-color: #f7941d">
                         <h3>Professional Services</h3>
                         <p>Client onboarding and implementation</p>
-                    </div>
+                    </a>
                     
-                    <div class="dept-card" style="--dept-color: #e91388" onclick="window.location.href='sales.html'">
+                    <a href="sales.html" class="dept-card" style="--dept-color: #e91388">
                         <h3>Sales</h3>
                         <p>New business development and deals</p>
-                    </div>
+                    </a>
                     
-                    <div class="dept-card" style="--dept-color: #1e3a5f" onclick="window.location.href='testing.html'">
+                    <a href="testing.html" class="dept-card" style="--dept-color: #1e3a5f">
                         <h3>Testing</h3>
                         <p>Quality assurance and system validation</p>
-                    </div>
+                    </a>
                 </div>
             </div>
             
