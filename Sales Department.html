@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Department Responsibilities</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f5f7fa; min-height: 100vh; padding: 40px 20px; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 10px 30px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #00a9a5 0%, #0d7377 50%, #ff6b9d 100%); color: white; padding: 60px 50px; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.4; }
+        .header-content { position: relative; z-index: 1; }
+        .header h1 { font-size: 2.5em; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .header .subtitle { font-size: 1.1em; opacity: 0.95; font-weight: 400; }
+        .content { padding: 50px; }
+        .intro-section { background: linear-gradient(135deg, rgba(0, 169, 165, 0.08) 0%, rgba(255, 107, 157, 0.08) 100%); border-left: 4px solid #00a9a5; padding: 30px; border-radius: 12px; margin-bottom: 40px; }
+        .intro-section h2 { color: #00a9a5; font-size: 1.4em; margin-bottom: 12px; font-weight: 600; }
+        .intro-section p { color: #555; font-size: 1.05em; line-height: 1.7; margin-bottom: 10px; }
+        .intro-section p:last-child { margin-bottom: 0; }
+        .section { margin-bottom: 35px; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; transition: all 0.3s ease; }
+        .section:hover { box-shadow: 0 4px 12px rgba(0, 169, 165, 0.25); border-color: #00a9a5; }
+        .section-header { background: linear-gradient(135deg, #00a9a5 0%, #0d7377 50%, #ff6b9d 100%); color: white; padding: 22px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .section-header:hover { background: linear-gradient(135deg, #00bfba 0%, #108084 50%, #ff85b0 100%); }
+        .section-header h2 { font-size: 1.3em; font-weight: 600; letter-spacing: -0.3px; }
+        .collapse-icon { font-size: 1.5em; transition: transform 0.3s ease; font-weight: 300; }
+        .section-header.collapsed .collapse-icon { transform: rotate(-90deg); }
+        .section-content { padding: 30px; background: white; max-height: 5000px; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s; }
+        .section-content.collapsed { max-height: 0; padding: 0 30px; }
+        .values-section h3 { background: linear-gradient(135deg, #00a9a5, #ff6b9d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.15em; margin: 25px 0 15px 0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .values-section h3:first-child { margin-top: 0; }
+        .values-list { list-style: none; padding: 0; }
+        .values-list li { margin-bottom: 14px; padding-left: 30px; position: relative; line-height: 1.65; color: #374151; font-size: 0.98em; }
+        .values-list li:before { content: "→"; position: absolute; left: 0; color: #00a9a5; font-weight: bold; font-size: 1.2em; }
+        .responsibility-item { margin-bottom: 12px; padding: 16px 20px; background: #f9fafb; border-radius: 8px; transition: all 0.2s ease; border-left: 3px solid transparent; }
+        .responsibility-item:hover { background: linear-gradient(135deg, rgba(0, 169, 165, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%); border-left-color: #ff6b9d; transform: translateX(4px); box-shadow: 0 2px 8px rgba(0, 169, 165, 0.15); }
+        .item-wrapper { display: flex; align-items: flex-start; }
+        .bullet { width: 8px; height: 8px; border-radius: 50%; margin-right: 14px; margin-top: 7px; flex-shrink: 0; background: linear-gradient(135deg, #00a9a5, #ff6b9d); }
+        .item-label { flex: 1; line-height: 1.6; color: #374151; font-size: 0.98em; }
+        .item-label strong { color: #1f2937; font-weight: 600; }
+        @media print { body { background: white; padding: 0; } .section-content { max-height: none !important; padding: 30px !important; } .section { page-break-inside: avoid; } .section-header { background: #00a9a5 !important; } }
+        @media (max-width: 768px) { .content { padding: 30px 25px; } .header { padding: 40px 30px; } .header h1 { font-size: 2em; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Sales Team</h1>
+                <div class="subtitle">Department Responsibilities & Collaboration</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="intro-section">
+                <h2>About Sales</h2>
+                <p>Here's a quick rundown of what the Sales Team does and how we fit into everything else going on around here. It tells you what we do, who we work closely with, and how we help bring new clients on board.</p>
+                <p>And if you're curious about anything else, feel free to pop over and ask.</p>
+            </div>
+
+            <div id="values" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Our Team Values in Action</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed values-section">
+                    <h3>Ignite Growth</h3>
+                    <ul class="values-list">
+                        <li>We continuously learn from sales conversations and use those insights to improve our approach and messaging</li>
+                        <li>We share what works (and what doesn't) across the team so everyone benefits from our learnings</li>
+                        <li>We challenge ourselves to find better ways to demonstrate value, not just repeat the same pitch</li>
+                    </ul>
+                    <h3>Empower Through Innovation</h3>
+                    <ul class="values-list">
+                        <li>We take time to understand what prospects really need before proposing solutions</li>
+                        <li>We look for practical sales approaches that focus on solving customer problems, not just closing deals</li>
+                        <li>When a sales strategy isn't working, we're willing to adapt and try different approaches</li>
+                    </ul>
+                    <h3>Always Go Beyond</h3>
+                    <ul class="values-list">
+                        <li>We put ourselves in prospects' shoes when understanding their business challenges</li>
+                        <li>We respond quickly to prospect enquiries and follow-ups, knowing that timing impacts buying decisions</li>
+                        <li>We focus our energy on deals that genuinely benefit from our solution, not just any opportunity</li>
+                    </ul>
+                    <h3>Trust Starts With Us</h3>
+                    <ul class="values-list">
+                        <li>When we see potential issues (unrealistic expectations, poor fit, timeline conflicts), we flag them early rather than waiting</li>
+                        <li>We keep prospects and internal teams informed about deal progress, even when things aren't going to plan</li>
+                        <li>When we commit to follow-ups or demos, we do everything we can to follow through</li>
+                        <li>We own our mistakes in sales conversations and focus on making them right rather than making excuses</li>
+                    </ul>
+                    <h3>Win Together</h3>
+                    <ul class="values-list">
+                        <li>We value input from Marketing, Product, and Professional Services - Sales brings market intelligence, others bring expertise</li>
+                        <li>We work closely with all teams to ensure smooth handovers and realistic client expectations</li>
+                        <li>We celebrate the whole team's success when clients are successfully onboarded</li>
+                        <li>We approach every sales conversation with respect and professionalism, even when prospects are challenging</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="what-we-do" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>What Our Department Does</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Cold calling prospective hospitality businesses to generate new opportunities</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Following up on leads generated by Marketing campaigns</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Conducting product demonstrations and presentations to potential clients</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Negotiating pricing, contract terms, and service agreements</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Closing new business deals and securing signed contracts</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Handing over signed contracts to Professional Services for onboarding</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Managing the sales pipeline and forecasting revenue</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Providing market feedback and competitive intelligence to inform strategy</div></div></div>
+                </div>
+            </div>
+
+            <div id="decide-on" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>We Can Decide On</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Sales outreach strategy and prospecting approach</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Individual deal negotiation tactics and discount approvals (within limits)</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Sales territory allocation and account assignment</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Sales process and methodology</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">CRM management and sales tool selection</div></div></div>
+                </div>
+            </div>
+
+            <div id="jointly" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>We Decide Jointly with Others</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Pricing and packaging for new clients <em>(with Finance, Product)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Lead qualification criteria and Marketing handoff process <em>(with Marketing)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Contract terms and service level agreements <em>(with Professional Services, Finance)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Product roadmap priorities based on sales feedback <em>(with Product)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Go-to-market strategy for new features <em>(with Marketing, Product)</em></div></div></div>
+                </div>
+            </div>
+
+            <div id="others-decide" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>What Others Decide (That Affects Us)</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Marketing:</strong> Qualified leads, campaign-generated opportunities, and marketing materials for prospect engagement</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Product:</strong> Product roadmap visibility, feature details, and demo environments for sales presentations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Professional Services:</strong> Implementation timelines, capacity availability, and onboarding process clarity for setting client expectations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Engineering:</strong> System stability for demos, technical validation during sales process, and feature feasibility assessments</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Consulting:</strong> ROI calculations, productivity improvement examples, and labour cost saving case studies for sales conversations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Customer Success:</strong> Customer testimonials, reference accounts, and retention success stories</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Finance:</strong> Pricing approvals, contract terms guidance, and payment processing setup</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Infrastructure:</strong> Demo environment availability and system performance during trials</div></div></div>
+                </div>
+            </div>
+
+            <div id="work-with" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Who We Work Closely With</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Professional Services:</strong> Signed contracts, client expectations set during sales, and handover documentation for smooth onboarding</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Marketing:</strong> Lead quality feedback, competitive insights from sales conversations, and customer pain points</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Product:</strong> Customer feature requests, market demand signals, and competitive feature analysis</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Finance:</strong> Revenue forecasts, pipeline reports, and contract value projections</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Customer Success:</strong> New client handover information and expectations set during sales process</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Consulting:</strong> Opportunities for additional consulting engagements with new or existing clients</div></div></div>
+                </div>
+            </div>
+
+            <div id="gaps" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Potential Gaps and Overlaps</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Unclear handover process to Professional Services</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Demo environment ownership</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Post-sale support expectations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Pricing authority</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Lead response time standards</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Sales and Marketing contact prospects</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Sales and Professional Services set client expectations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Sales and Product discuss future features with prospects</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Sales and Consulting discuss ROI and productivity improvements</div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            content.classList.toggle('collapsed');
+            header.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>

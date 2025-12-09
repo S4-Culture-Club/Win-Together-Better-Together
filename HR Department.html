@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Department Responsibilities</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f5f7fa; min-height: 100vh; padding: 40px 20px; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 10px 30px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #00a9a5 0%, #0d7377 50%, #ff6b9d 100%); color: white; padding: 60px 50px; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.4; }
+        .header-content { position: relative; z-index: 1; }
+        .header h1 { font-size: 2.5em; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .header .subtitle { font-size: 1.1em; opacity: 0.95; font-weight: 400; }
+        .content { padding: 50px; }
+        .intro-section { background: linear-gradient(135deg, rgba(0, 169, 165, 0.08) 0%, rgba(255, 107, 157, 0.08) 100%); border-left: 4px solid #00a9a5; padding: 30px; border-radius: 12px; margin-bottom: 40px; }
+        .intro-section h2 { color: #00a9a5; font-size: 1.4em; margin-bottom: 12px; font-weight: 600; }
+        .intro-section p { color: #555; font-size: 1.05em; line-height: 1.7; }
+        .section { margin-bottom: 35px; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; transition: all 0.3s ease; }
+        .section:hover { box-shadow: 0 4px 12px rgba(0, 169, 165, 0.25); border-color: #00a9a5; }
+        .section-header { background: linear-gradient(135deg, #00a9a5 0%, #0d7377 50%, #ff6b9d 100%); color: white; padding: 22px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .section-header:hover { background: linear-gradient(135deg, #00bfba 0%, #108084 50%, #ff85b0 100%); }
+        .section-header h2 { font-size: 1.3em; font-weight: 600; letter-spacing: -0.3px; }
+        .collapse-icon { font-size: 1.5em; transition: transform 0.3s ease; font-weight: 300; }
+        .section-header.collapsed .collapse-icon { transform: rotate(-90deg); }
+        .section-content { padding: 30px; background: white; max-height: 5000px; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s; }
+        .section-content.collapsed { max-height: 0; padding: 0 30px; }
+        .values-section h3 { background: linear-gradient(135deg, #00a9a5, #ff6b9d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.15em; margin: 25px 0 15px 0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .values-section h3:first-child { margin-top: 0; }
+        .values-list { list-style: none; padding: 0; }
+        .values-list li { margin-bottom: 14px; padding-left: 30px; position: relative; line-height: 1.65; color: #374151; font-size: 0.98em; }
+        .values-list li:before { content: "→"; position: absolute; left: 0; color: #00a9a5; font-weight: bold; font-size: 1.2em; }
+        .responsibility-item { margin-bottom: 12px; padding: 16px 20px; background: #f9fafb; border-radius: 8px; transition: all 0.2s ease; border-left: 3px solid transparent; }
+        .responsibility-item:hover { background: linear-gradient(135deg, rgba(0, 169, 165, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%); border-left-color: #ff6b9d; transform: translateX(4px); box-shadow: 0 2px 8px rgba(0, 169, 165, 0.15); }
+        .item-wrapper { display: flex; align-items: flex-start; }
+        .bullet { width: 8px; height: 8px; border-radius: 50%; margin-right: 14px; margin-top: 7px; flex-shrink: 0; background: linear-gradient(135deg, #00a9a5, #ff6b9d); }
+        .item-label { flex: 1; line-height: 1.6; color: #374151; font-size: 0.98em; }
+        .item-label strong { color: #1f2937; font-weight: 600; }
+        @media print { body { background: white; padding: 0; } .section-content { max-height: none !important; padding: 30px !important; } .section { page-break-inside: avoid; } .section-header { background: #00a9a5 !important; } }
+        @media (max-width: 768px) { .content { padding: 30px 25px; } .header { padding: 40px 30px; } .header h1 { font-size: 2em; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>HR Team</h1>
+                <div class="subtitle">Department Responsibilities & Collaboration</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="intro-section">
+                <h2>About HR</h2>
+                <p>Here's a quick rundown of what the HR Team does and how we fit into everything else going on around here. It tells you what we do, who we work closely with, and how we help keep things running smoothly.</p>
+                <p>And if you're curious about anything else, feel free to pop over and ask.</p>
+            </div>
+
+            <div id="values" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Our Team Values in Action</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed values-section">
+                    <h3>Ignite Growth</h3>
+                    <ul class="values-list">
+                        <li>We continuously learn from employee feedback and use those insights to improve our policies and programmes</li>
+                        <li>We share what works (and what doesn't) across teams so everyone can benefit from our learnings</li>
+                        <li>We challenge ourselves to find better ways to support our people, not just stick with "how it's always been done"</li>
+                    </ul>
+                    <h3>Empower Through Innovation</h3>
+                    <ul class="values-list">
+                        <li>We take time to understand what employees actually need before rolling out new policies or systems</li>
+                        <li>We look for practical solutions that work for everyone, not just what sounds good on paper</li>
+                        <li>When something isn't working, we're willing to change course and try a different approach</li>
+                    </ul>
+                    <h3>Always Go Beyond</h3>
+                    <ul class="values-list">
+                        <li>We put ourselves in employees' shoes when handling sensitive situations or policy decisions</li>
+                        <li>We respond quickly to questions and concerns, knowing that waiting causes unnecessary stress</li>
+                        <li>We focus our energy on things that genuinely improve people's work lives</li>
+                    </ul>
+                    <h3>Trust Starts With Us</h3>
+                    <ul class="values-list">
+                        <li>When we see potential issues (hiring delays, policy changes, system problems), we flag them early rather than waiting</li>
+                        <li>We keep people informed about what's happening and why, even when the news isn't great</li>
+                        <li>When we commit to a timeline or deliverable, we do everything we can to follow through</li>
+                        <li>We own our mistakes and focus on fixing them rather than making excuses</li>
+                    </ul>
+                    <h3>Win Together</h3>
+                    <ul class="values-list">
+                        <li>We value input from everyone involved in hiring - HR brings process expertise, departments bring technical knowledge</li>
+                        <li>We work closely with Finance, managers, and leadership to solve organisational challenges</li>
+                        <li>We celebrate the whole team's success when we hire great people or roll out improvements</li>
+                        <li>We approach every interaction with respect and professionalism, even when conversations are difficult</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="what-we-do" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>What Our Department Does</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Recruit, onboard, and support employees throughout their journey with us</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Manage payroll, benefits, and compensation fairly and accurately</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Develop policies that protect both employees and the organisation</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Foster a positive culture where everyone can thrive</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Provide guidance on employee relations, performance, and development</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Ensure compliance with employment laws and regulations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Support organisational change and transformation initiatives</div></div></div>
+                </div>
+            </div>
+
+            <div id="decide-on" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>We Can Decide On</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Recruitment strategies and candidate selection</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Employee development programmes and training initiatives</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Performance management processes and timelines</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">HR policies and procedures (within legal and organisational frameworks)</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Employee engagement activities and wellness programmes</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Internal communication approaches for HR matters</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">HR technology and systems improvements</div></div></div>
+                </div>
+            </div>
+
+            <div id="jointly" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>We Decide Jointly with Others</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Significant changes to compensation structure or benefits packages</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Organisational restructuring or redundancies</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Major policy changes that affect terms and conditions of employment</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Budget increases beyond allocated HR budget</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">New senior-level hires or executive appointments</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Implementation of new HR systems or major technology investments</div></div></div>
+                </div>
+            </div>
+
+            <div id="others-decide" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>What Others Decide (That Affects Us)</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Executive Team:</strong> Overall organisational strategy and business direction</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Finance:</strong> Company-wide budget allocations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>All Departments:</strong> Departmental headcount and resource planning</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Infrastructure:</strong> Technology infrastructure and IT systems decisions</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Facilities:</strong> Workplace facilities and office space planning</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>External:</strong> Changes to employment law and external regulations</div></div></div>
+                </div>
+            </div>
+
+            <div id="work-with" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Who We Work Closely With</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>All Departments:</strong> As HR is a central support function</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Finance:</strong> For payroll, budgeting, and benefits administration</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Infrastructure:</strong> For HR systems, data security, and onboarding technology</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Legal:</strong> For compliance, contracts, and employment law guidance</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Department Managers:</strong> For recruitment, performance management, and employee relations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Executive Leadership:</strong> For strategic workforce planning</div></div></div>
+                </div>
+            </div>
+
+            <div id="gaps" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Potential Gaps and Overlaps</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Department managers handling performance issues</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Finance managing some benefits administration</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">IT controlling access to HR systems and data</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Learning & Development responsibilities</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Internal communications ownership</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Health and safety coordination</div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            content.classList.toggle('collapsed');
+            header.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>

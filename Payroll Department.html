@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll Department Responsibilities</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f5f7fa; min-height: 100vh; padding: 40px 20px; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 10px 30px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #00a9a5 0%, #0d7377 50%, #ff6b9d 100%); color: white; padding: 60px 50px; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.4; }
+        .header-content { position: relative; z-index: 1; }
+        .header h1 { font-size: 2.5em; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .header .subtitle { font-size: 1.1em; opacity: 0.95; font-weight: 400; }
+        .content { padding: 50px; }
+        .intro-section { background: linear-gradient(135deg, rgba(0, 169, 165, 0.08) 0%, rgba(255, 107, 157, 0.08) 100%); border-left: 4px solid #00a9a5; padding: 30px; border-radius: 12px; margin-bottom: 40px; }
+        .intro-section h2 { color: #00a9a5; font-size: 1.4em; margin-bottom: 12px; font-weight: 600; }
+        .intro-section p { color: #555; font-size: 1.05em; line-height: 1.7; }
+        .section { margin-bottom: 35px; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; transition: all 0.3s ease; }
+        .section:hover { box-shadow: 0 4px 12px rgba(0, 169, 165, 0.25); border-color: #00a9a5; }
+        .section-header { background: linear-gradient(135deg, #00a9a5 0%, #0d7377 50%, #ff6b9d 100%); color: white; padding: 22px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .section-header:hover { background: linear-gradient(135deg, #00bfba 0%, #108084 50%, #ff85b0 100%); }
+        .section-header h2 { font-size: 1.3em; font-weight: 600; letter-spacing: -0.3px; }
+        .collapse-icon { font-size: 1.5em; transition: transform 0.3s ease; font-weight: 300; }
+        .section-header.collapsed .collapse-icon { transform: rotate(-90deg); }
+        .section-content { padding: 30px; background: white; max-height: 5000px; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s; }
+        .section-content.collapsed { max-height: 0; padding: 0 30px; }
+        .values-section h3 { background: linear-gradient(135deg, #00a9a5, #ff6b9d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.15em; margin: 25px 0 15px 0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .values-section h3:first-child { margin-top: 0; }
+        .values-list { list-style: none; padding: 0; }
+        .values-list li { margin-bottom: 14px; padding-left: 30px; position: relative; line-height: 1.65; color: #374151; font-size: 0.98em; }
+        .values-list li:before { content: "→"; position: absolute; left: 0; color: #00a9a5; font-weight: bold; font-size: 1.2em; }
+        .responsibility-item { margin-bottom: 12px; padding: 16px 20px; background: #f9fafb; border-radius: 8px; transition: all 0.2s ease; border-left: 3px solid transparent; }
+        .responsibility-item:hover { background: linear-gradient(135deg, rgba(0, 169, 165, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%); border-left-color: #ff6b9d; transform: translateX(4px); box-shadow: 0 2px 8px rgba(0, 169, 165, 0.15); }
+        .item-wrapper { display: flex; align-items: flex-start; }
+        .bullet { width: 8px; height: 8px; border-radius: 50%; margin-right: 14px; margin-top: 7px; flex-shrink: 0; background: linear-gradient(135deg, #00a9a5, #ff6b9d); }
+        .item-label { flex: 1; line-height: 1.6; color: #374151; font-size: 0.98em; }
+        .item-label strong { color: #1f2937; font-weight: 600; }
+        @media print { body { background: white; padding: 0; } .section-content { max-height: none !important; padding: 30px !important; } .section { page-break-inside: avoid; } .section-header { background: #00a9a5 !important; } }
+        @media (max-width: 768px) { .content { padding: 30px 25px; } .header { padding: 40px 30px; } .header h1 { font-size: 2em; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Payroll Team</h1>
+                <div class="subtitle">Department Responsibilities & Collaboration</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="intro-section">
+                <h2>About Payroll</h2>
+                <p>Here's a quick rundown of what the Payroll Team does and how we fit into everything else going on around here. It tells you what we do, who we work closely with, and how we help keep things running smoothly.</p>
+                <p>And if you're curious about anything else, feel free to pop over and ask.</p>
+            </div>
+
+            <div id="values" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Our Team Values in Action</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed values-section">
+                    <h3>Ignite Growth</h3>
+                    <ul class="values-list">
+                        <li>We continuously learn from payroll processing issues and use those insights to improve our procedures and accuracy</li>
+                        <li>We share what works (and what doesn't) in payroll processing so everyone benefits from our learnings</li>
+                        <li>We challenge ourselves to find better ways to process payroll efficiently, not just follow existing routines</li>
+                    </ul>
+                    <h3>Empower Through Innovation</h3>
+                    <ul class="values-list">
+                        <li>We take time to understand what clients really need from their payroll service before implementing changes</li>
+                        <li>We look for practical payroll solutions that balance accuracy with processing efficiency</li>
+                        <li>When a payroll process isn't working, we're willing to change our approach and try different methods</li>
+                    </ul>
+                    <h3>Always Go Beyond</h3>
+                    <ul class="values-list">
+                        <li>We put ourselves in clients' and their employees' shoes, knowing that payroll errors cause real hardship</li>
+                        <li>We respond quickly to payroll queries and discrepancies, knowing that people rely on timely, accurate payments</li>
+                        <li>We focus our energy on activities that genuinely improve payroll accuracy and processing reliability</li>
+                    </ul>
+                    <h3>Trust Starts With Us</h3>
+                    <ul class="values-list">
+                        <li>When we see potential payroll issues (data quality problems, processing risks, compliance concerns), we flag them early rather than waiting</li>
+                        <li>We keep clients informed about payroll status and any issues, even when the news isn't great</li>
+                        <li>When we commit to payroll deadlines, we do everything we can to follow through</li>
+                        <li>We own our payroll mistakes and focus on fixing them rather than making excuses</li>
+                    </ul>
+                    <h3>Win Together</h3>
+                    <ul class="values-list">
+                        <li>We value input from clients and technical teams - Payroll brings processing expertise, others bring system and client knowledge</li>
+                        <li>We work closely with Engineering, Infrastructure, and Professional Services to ensure reliable payroll processing</li>
+                        <li>We celebrate the whole team's success when payroll runs smoothly and accurately</li>
+                        <li>We approach every payroll discussion with respect and professionalism, even when managing urgent issues</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="what-we-do" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>What Our Department Does</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Processing payroll for clients using data logged in the S4Labour system</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Ensuring accurate and timely payroll runs for all client organisations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Utilising third-party providers to process payroll transactions</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Verifying data integrity and accuracy before payroll processing</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Managing payroll compliance and regulatory requirements</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Handling payroll queries and discrepancies</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Coordinating with third-party payroll providers</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Reporting payroll issues and data quality problems to relevant teams</div></div></div>
+                </div>
+            </div>
+
+            <div id="decide-on" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>We Can Decide On</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Payroll processing schedules and deadlines</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Data validation rules and quality checks</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Third-party provider selection and management</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Payroll error resolution procedures</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Internal payroll team structure and capacity planning</div></div></div>
+                </div>
+            </div>
+
+            <div id="jointly" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>We Decide Jointly with Others</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Payroll data requirements and system specifications <em>(with Engineering, Product)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Client payroll setup and configuration <em>(with Professional Services)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Payroll feature roadmap priorities <em>(with Product)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Pricing for payroll services <em>(with Finance, Sales)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Data quality standards and validation rules <em>(with Professional Services, Infrastructure)</em></div></div></div>
+                </div>
+            </div>
+
+            <div id="others-decide" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>What Others Decide (That Affects Us)</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Professional Services:</strong> Clean, accurate client data setup and correct initial configuration</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Engineering:</strong> System stability, data extraction reliability, and bug fixes for payroll-impacting issues</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Infrastructure:</strong> Database integrity, system uptime during payroll processing windows, and data backup</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Product:</strong> Clear documentation of how system data feeds into payroll, and advance notice of changes</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Customer Success:</strong> Client communication about payroll issues and changes</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Testing:</strong> Thorough testing of any system changes that affect payroll data</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Third-party providers:</strong> Reliable processing, compliance updates, and technical integration support</div></div></div>
+                </div>
+            </div>
+
+            <div id="work-with" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Who We Work Closely With</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Clients:</strong> Accurate and timely payroll processing for their employees</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Customer Success:</strong> Payroll status updates and resolution timelines for client communication</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Product:</strong> Feedback on data quality issues and system limitations affecting payroll accuracy</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Engineering:</strong> Bug reports and data issues that need fixing</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Finance:</strong> Payroll service revenue and client billing information</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Sales:</strong> Payroll service capabilities and limitations for accurate sales messaging</div></div></div>
+                </div>
+            </div>
+
+            <div id="gaps" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Potential Gaps and Overlaps</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Data quality ownership</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">System issue escalation</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Client communication during payroll issues</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Third-party provider management</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Data validation timing</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Payroll and Customer Success communicate with clients about payroll issues</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Payroll and Professional Services validate client data setup</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Payroll and Engineering troubleshoot data issues</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Payroll and Product define data requirements</div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            content.classList.toggle('collapsed');
+            header.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>

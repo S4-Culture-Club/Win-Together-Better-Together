@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Department Responsibilities</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f5f7fa; min-height: 100vh; padding: 40px 20px; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 10px 30px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #00a9a5 0%, #0d7377 50%, #ff6b9d 100%); color: white; padding: 60px 50px; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.4; }
+        .header-content { position: relative; z-index: 1; }
+        .header h1 { font-size: 2.5em; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .header .subtitle { font-size: 1.1em; opacity: 0.95; font-weight: 400; }
+        .content { padding: 50px; }
+        .intro-section { background: linear-gradient(135deg, rgba(0, 169, 165, 0.08) 0%, rgba(255, 107, 157, 0.08) 100%); border-left: 4px solid #00a9a5; padding: 30px; border-radius: 12px; margin-bottom: 40px; }
+        .intro-section h2 { color: #00a9a5; font-size: 1.4em; margin-bottom: 12px; font-weight: 600; }
+        .intro-section p { color: #555; font-size: 1.05em; line-height: 1.7; }
+        .section { margin-bottom: 35px; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; transition: all 0.3s ease; }
+        .section:hover { box-shadow: 0 4px 12px rgba(0, 169, 165, 0.25); border-color: #00a9a5; }
+        .section-header { background: linear-gradient(135deg, #00a9a5 0%, #0d7377 50%, #ff6b9d 100%); color: white; padding: 22px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .section-header:hover { background: linear-gradient(135deg, #00bfba 0%, #108084 50%, #ff85b0 100%); }
+        .section-header h2 { font-size: 1.3em; font-weight: 600; letter-spacing: -0.3px; }
+        .collapse-icon { font-size: 1.5em; transition: transform 0.3s ease; font-weight: 300; }
+        .section-header.collapsed .collapse-icon { transform: rotate(-90deg); }
+        .section-content { padding: 30px; background: white; max-height: 5000px; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s; }
+        .section-content.collapsed { max-height: 0; padding: 0 30px; }
+        .values-section h3 { background: linear-gradient(135deg, #00a9a5, #ff6b9d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.15em; margin: 25px 0 15px 0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .values-section h3:first-child { margin-top: 0; }
+        .values-list { list-style: none; padding: 0; }
+        .values-list li { margin-bottom: 14px; padding-left: 30px; position: relative; line-height: 1.65; color: #374151; font-size: 0.98em; }
+        .values-list li:before { content: "→"; position: absolute; left: 0; color: #00a9a5; font-weight: bold; font-size: 1.2em; }
+        .responsibility-item { margin-bottom: 12px; padding: 16px 20px; background: #f9fafb; border-radius: 8px; transition: all 0.2s ease; border-left: 3px solid transparent; }
+        .responsibility-item:hover { background: linear-gradient(135deg, rgba(0, 169, 165, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%); border-left-color: #ff6b9d; transform: translateX(4px); box-shadow: 0 2px 8px rgba(0, 169, 165, 0.15); }
+        .item-wrapper { display: flex; align-items: flex-start; }
+        .bullet { width: 8px; height: 8px; border-radius: 50%; margin-right: 14px; margin-top: 7px; flex-shrink: 0; background: linear-gradient(135deg, #00a9a5, #ff6b9d); }
+        .item-label { flex: 1; line-height: 1.6; color: #374151; font-size: 0.98em; }
+        .item-label strong { color: #1f2937; font-weight: 600; }
+        @media print { body { background: white; padding: 0; } .section-content { max-height: none !important; padding: 30px !important; } .section { page-break-inside: avoid; } .section-header { background: #00a9a5 !important; } }
+        @media (max-width: 768px) { .content { padding: 30px 25px; } .header { padding: 40px 30px; } .header h1 { font-size: 2em; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Marketing Team</h1>
+                <div class="subtitle">Department Responsibilities & Collaboration</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="intro-section">
+                <h2>About Marketing</h2>
+                <p>Here's a quick rundown of what the Marketing Team does and how we fit into everything else going on around here. It tells you what we do, who we work closely with, and how we help keep things running smoothly.</p>
+                <p>And if you're curious about anything else, feel free to pop over and ask.</p>
+            </div>
+
+            <div id="values" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Our Team Values in Action</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed values-section">
+                    <h3>Ignite Growth</h3>
+                    <ul class="values-list">
+                        <li>We continuously learn from campaign performance and use those insights to improve our marketing effectiveness</li>
+                        <li>We share what works (and what doesn't) across campaigns so everyone benefits from our learnings</li>
+                        <li>We challenge ourselves to find better ways to reach our audience, not just repeat the same campaigns</li>
+                    </ul>
+                    <h3>Empower Through Innovation</h3>
+                    <ul class="values-list">
+                        <li>We take time to understand what our target audience really needs before creating content or campaigns</li>
+                        <li>We look for practical marketing approaches that balance creativity with measurable business results</li>
+                        <li>When a marketing strategy isn't delivering results, we're willing to pivot and try different approaches</li>
+                    </ul>
+                    <h3>Always Go Beyond</h3>
+                    <ul class="values-list">
+                        <li>We put ourselves in our prospects' shoes when creating messaging and campaigns</li>
+                        <li>We respond quickly to campaign requests and content needs, knowing that timing impacts business opportunities</li>
+                        <li>We focus our energy on marketing activities that genuinely drive lead generation and business growth</li>
+                    </ul>
+                    <h3>Trust Starts With Us</h3>
+                    <ul class="values-list">
+                        <li>When we see potential issues (campaign underperformance, messaging problems, website issues), we flag them early rather than waiting</li>
+                        <li>We keep teams informed about campaign performance and lead quality, even when results aren't meeting expectations</li>
+                        <li>When we commit to campaign timelines or content deliverables, we do everything we can to follow through</li>
+                        <li>We own our marketing mistakes and focus on fixing them rather than making excuses</li>
+                    </ul>
+                    <h3>Win Together</h3>
+                    <ul class="values-list">
+                        <li>We value input from Sales, Product, and customers - Marketing brings creative expertise, others bring market intelligence</li>
+                        <li>We work closely with Sales to ensure campaigns generate quality leads that convert</li>
+                        <li>We celebrate the whole team's success when campaigns drive business growth</li>
+                        <li>We approach every marketing discussion with respect and professionalism, even when managing competing priorities</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="what-we-do" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>What Our Department Does</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Targeting businesses with marketing campaigns to generate awareness and interest</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Managing and maintaining the s4labour.com website (excluding the system/platform itself)</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Creating content that showcases product capabilities and hospitality industry expertise</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Generating qualified leads through digital campaigns, events, and content marketing</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Passing qualified leads to the Sales team for follow-up and conversion</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Supporting product launches and feature releases with go-to-market campaigns</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Building brand presence in the hospitality workforce management sector</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Managing marketing technology stack and campaign performance analytics</div></div></div>
+                </div>
+            </div>
+
+            <div id="decide-on" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>We Can Decide On</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Marketing campaign strategy and channel selection</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">s4labour.com website content, design, and user experience</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Marketing budget allocation across campaigns and channels</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Content calendar and publishing priorities</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Marketing technology and tools selection</div></div></div>
+                </div>
+            </div>
+
+            <div id="jointly" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>We Decide Jointly with Others</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Lead qualification criteria and handoff process <em>(with Sales)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Product launch timing and messaging <em>(with Product and Sales)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Pricing and packaging positioning on website <em>(with Sales, Product, Finance)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Customer case study selection and approval <em>(with Customer Success, Professional Services)</em></div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Event participation and sponsorship decisions <em>(with Sales and Finance)</em></div></div></div>
+                </div>
+            </div>
+
+            <div id="others-decide" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>What Others Decide (That Affects Us)</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Product:</strong> Product roadmap, feature details, UI/UX assets, and technical accuracy of marketing claims</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Sales:</strong> Lead feedback, target customer insights, and what messaging resonates in sales conversations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Professional Services:</strong> Implementation success stories and customer onboarding experience feedback</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Customer Success:</strong> Long-term customer testimonials, retention data, and account health insights</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Consulting:</strong> ROI case studies, productivity improvement metrics, and labour cost saving examples</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Engineering:</strong> Demo environments, system stability for trials, and technical validation of marketing claims</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Infrastructure:</strong> Website hosting (s4labour.com), uptime, and performance</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Finance:</strong> Budget approvals, campaign ROI reporting requirements, and pricing guidance</div></div></div>
+                </div>
+            </div>
+
+            <div id="work-with" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Who We Work Closely With</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Sales:</strong> Qualified leads, campaign-generated opportunities, and sales enablement materials</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Product:</strong> Market feedback, competitive intelligence, and customer pain points from campaigns</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Professional Services:</strong> Website traffic and lead volume forecasts for capacity planning</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>Consulting:</strong> Thought leadership content and marketing materials for client presentations</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label"><strong>HR:</strong> Employer brand materials and recruitment marketing support</div></div></div>
+                </div>
+            </div>
+
+            <div id="gaps" class="section">
+                <div class="section-header collapsed" onclick="toggleSection(this)">
+                    <h2>Potential Gaps and Overlaps</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content collapsed">
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Unclear ownership of s4labour.com content updates</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Post-sale customer communication strategy</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Lead quality definition</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Product education content</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Customer reference programme</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Marketing and Sales contact prospects</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Marketing and Product communicate product updates</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Marketing and Consulting create thought leadership content</div></div></div>
+                    <div class="responsibility-item"><div class="item-wrapper"><div class="bullet"></div><div class="item-label">Both Marketing and Professional Services gather customer feedback</div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            content.classList.toggle('collapsed');
+            header.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>
