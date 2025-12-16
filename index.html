@@ -639,24 +639,6 @@ var deptColours = {
     'Professional Services': '#f7941d', 'Sales': '#e91388', 'Testing': '#3b82f6'
 };
 
-var searchData = [
-    { dept: 'Consulting', link: 'consulting.html', text: 'ROI calculations and labour cost saving examples for prospects' },
-    { dept: 'Consulting', link: 'consulting.html', text: 'Workforce optimisation and operational excellence advice' },
-    { dept: 'Customer Success', link: 'customer-success.html', text: 'Client relationships and ongoing support' },
-    { dept: 'Customer Success', link: 'customer-success.html', text: 'Feature requests from clients and usage feedback' },
-    { dept: 'Engineering', link: 'engineering.html', text: 'Software development and system maintenance' },
-    { dept: 'Engineering', link: 'engineering.html', text: 'Bug fixes and live issue resolution' },
-    { dept: 'Finance', link: 'finance.html', text: 'Pricing approvals and contract terms guidance' },
-    { dept: 'HR', link: 'hr.html', text: 'People, culture, and organisational development' },
-    { dept: 'Infrastructure', link: 'infrastructure.html', text: 'Development environments and deployment pipelines' },
-    { dept: 'Marketing', link: 'marketing.html', text: 'Lead generation from campaigns and events' },
-    { dept: 'Payroll', link: 'payroll.html', text: 'Payroll processing and status updates' },
-    { dept: 'Product', link: 'product.html', text: 'Feature specifications and product roadmap' },
-    { dept: 'Professional Services', link: 'professional-services.html', text: 'Client onboarding and implementation' },
-    { dept: 'Sales', link: 'sales.html', text: 'New business development and deals' },
-    { dept: 'Testing', link: 'testing.html', text: 'Quality assurance and system validation' }
-];
-
 document.getElementById('searchInput').addEventListener('input', function() {
     var query = this.value.trim().toLowerCase();
     var resultsContainer = document.getElementById('resultsContainer');
